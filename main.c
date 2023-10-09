@@ -15,8 +15,8 @@
 #include "../HALL/KPAD/KPAD_Interface.h"
 
 
-void calc_reset(void);
-u16 calcArr (u8 NumArr[],u8 i);
+
+u16 Handle_Arr (u8 NumArr[],u8 i);
 u8 pow (u8 x, u8 y);
 
 int main (){
@@ -61,7 +61,7 @@ int main (){
     					i++;
     				}
     				if(Local_pressed == 10){
-    					num_1 = calcArr(number_1,i);
+    					num_1 = Handle_Arr(number_1,i);
     					LCD_voidWriteCommand(Cursor_Or_Display_Shift);
     					LCD_voidWriteData('+');
     					LCD_voidWriteCommand(Cursor_Or_Display_Shift);
@@ -69,7 +69,7 @@ int main (){
     					op = 0;
     				}
     				if(Local_pressed == 11){
-    				   	num_1 = calcArr(number_1,i);
+    				   	num_1 = Handle_Arr(number_1,i);
     				   	LCD_voidWriteCommand(Cursor_Or_Display_Shift);
     				    LCD_voidWriteData('-');
     					LCD_voidWriteCommand(Cursor_Or_Display_Shift);
@@ -77,7 +77,7 @@ int main (){
     					op = 1;
     		 		}
     				if(Local_pressed == 13){
-    				    num_1 = calcArr(number_1,i);
+    				    num_1 = Handle_Arr(number_1,i);
     				    LCD_voidWriteCommand(Cursor_Or_Display_Shift);
     				    LCD_voidWriteData('*');
     					LCD_voidWriteCommand(Cursor_Or_Display_Shift);
@@ -85,7 +85,7 @@ int main (){
     				    op = 2;
     				 }
     				if(Local_pressed == 12){
-    				    num_1 = calcArr(number_1,i);
+    				    num_1 = Handle_Arr(number_1,i);
     				    LCD_voidWriteCommand(Cursor_Or_Display_Shift);
     				    LCD_voidWriteData('/');
     					LCD_voidWriteCommand(Cursor_Or_Display_Shift);
@@ -98,7 +98,7 @@ int main (){
     				   	h++;
     				}
     				if (Local_pressed == 14){
-    					num_2 = calcArr(number_2,h);
+    					num_2 = Handle_Arr(number_2,h);
     					LCD_voidGoToPosition(LINE2,10);
     					LCD_voidWriteData('=');
     					LCD_voidGoToPosition(LINE2,11);
@@ -173,7 +173,7 @@ int main (){
     						p++;
     					}
     					if (Local_pressed == 14 && Local_pressed != 255){
-    						num = calcArr(number,k);
+    						num = Handle_Arr(number,k);
     						while (num != 0){
     							rem[7-i] = num % 2;
     							num = num / 2;
